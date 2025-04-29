@@ -28,4 +28,18 @@ D = defaultdict(list)
 for u,v in A:
     D[u].append(v)
 
-print(D)
+# print(D)
+
+# DFS with recursion
+
+def dfs_recursive(node):
+    print(node)
+    for neighbor_node in D[node]:
+        if neighbor_node not in seen:
+            seen.add(neighbor_node)
+            dfs_recursive(neighbor_node)
+
+source = 0
+seen = set()
+seen.add(source)
+dfs_recursive(source)
