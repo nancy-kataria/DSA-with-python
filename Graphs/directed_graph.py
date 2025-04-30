@@ -41,5 +41,23 @@ def dfs_recursive(node):
 
 source = 0
 seen = set()
+# to keep track of visited nodes
 seen.add(source)
-dfs_recursive(source)
+# dfs_recursive(source)
+
+# Iterative DFS
+
+stack = [source]
+
+def dfs_iterative():
+    while stack:
+        node = stack.pop()
+        print(node)
+        
+        for neighbor_node in D[node]:
+            if neighbor_node not in seen:
+                seen.add(neighbor_node)
+                stack.append(neighbor_node)
+
+
+dfs_iterative()
