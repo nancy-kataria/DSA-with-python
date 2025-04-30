@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, deque
 
 # Array of Edges (Directed) [Start, End]
 n = 8
@@ -28,7 +28,7 @@ D = defaultdict(list)
 for u,v in A:
     D[u].append(v)
 
-# print(D)
+print(D)
 
 # DFS with recursion
 
@@ -60,4 +60,21 @@ def dfs_iterative():
                 stack.append(neighbor_node)
 
 
-dfs_iterative()
+# dfs_iterative()
+
+# BFS - Queue
+
+q = deque()
+q.append(source)
+
+def BFS():
+    while q:
+        node = q.popleft()
+        print(node)
+        
+        for neighbor_node in D[node]:
+            if neighbor_node not in seen:
+                seen.add(neighbor_node)
+                q.append(neighbor_node)
+
+BFS()
