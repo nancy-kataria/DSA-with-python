@@ -56,6 +56,24 @@ class LinkedList:
         unwantedNode = leader.next
         leader.next = unwantedNode.next
 
+    def reverse(self):
+        prev = None
+        current = self.head
+        next = current.next
+
+        while current:
+            # set following variable to current's next node
+            following = current.next
+            # reverse the pointer of current node to prev node
+            current.next = prev
+            # move prev pointer to the current node
+            prev = current
+            # move current pointer to the next node
+            current = following
+
+        self.head = prev
+
+
     def printlist(self):
         currentNode = self.head
         arr = []
@@ -63,8 +81,6 @@ class LinkedList:
             arr.append(currentNode.value)
             currentNode = currentNode.next  # Move to the next node
         print(arr)
-
-    
 
 
 linked_list = LinkedList()
@@ -75,4 +91,6 @@ linked_list.append(3)
 linked_list.prepend(4)
 linked_list.printlist()
 linked_list.remove(2)
+linked_list.printlist()
+linked_list.reverse()
 linked_list.printlist()
