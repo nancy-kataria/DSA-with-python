@@ -34,9 +34,20 @@ class LinkedList:
             currentNode = currentNode.next  # Move to the next node
         print(arr)
 
+    def prepend(self, value):
+        node = Node(value)
+        if self.head is None:
+            self.head = node
+            return
+        
+        node.next = self.head
+        self.head = node
+
 
 linked_list = LinkedList()
 linked_list.append(1)
 linked_list.append(2)
 linked_list.append(3)
+
+linked_list.prepend(4)
 linked_list.printlist()
