@@ -1,0 +1,42 @@
+# A linked list is a linear data structure that consists of a series of nodes connected by pointers (in C or C++)
+# or references (in Java, Python and JavaScript). Each node contains data and a pointer/reference to the next node in the list.
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, value):
+        node = Node(value)
+
+        # If list is empty, make node as the head
+        if self.head is None:
+            self.head = node
+            return
+        
+        currentNode = self.head
+
+        # keep traversing to the end of the list
+        while currentNode.next:
+            currentNode = currentNode.next
+
+        currentNode.next = node
+
+    def printlist(self):
+        currentNode = self.head
+        arr = []
+        while currentNode:
+            arr.append(currentNode.value)
+            currentNode = currentNode.next  # Move to the next node
+        print(arr)
+
+
+linked_list = LinkedList()
+linked_list.append(1)
+linked_list.append(2)
+linked_list.append(3)
+linked_list.printlist()
