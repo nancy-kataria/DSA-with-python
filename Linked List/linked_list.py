@@ -44,6 +44,17 @@ class LinkedList:
             counter+=1
 
         return currentNode
+    
+    def remove(self, index):
+        if index == 0:
+            unwantedNode = self.head
+            self.head = unwantedNode.next
+            return
+        
+        # traverse until the one node before the node to be removed
+        leader = self.traverseToIndex(index-1)
+        unwantedNode = leader.next
+        leader.next = unwantedNode.next
 
     def printlist(self):
         currentNode = self.head
@@ -62,4 +73,6 @@ linked_list.append(2)
 linked_list.append(3)
 
 linked_list.prepend(4)
+linked_list.printlist()
+linked_list.remove(2)
 linked_list.printlist()
