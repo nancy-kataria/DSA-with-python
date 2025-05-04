@@ -26,14 +26,6 @@ class LinkedList:
 
         currentNode.next = node
 
-    def printlist(self):
-        currentNode = self.head
-        arr = []
-        while currentNode:
-            arr.append(currentNode.value)
-            currentNode = currentNode.next  # Move to the next node
-        print(arr)
-
     def prepend(self, value):
         node = Node(value)
         if self.head is None:
@@ -42,6 +34,26 @@ class LinkedList:
         
         node.next = self.head
         self.head = node
+
+    def traverseToIndex(self, index):
+        counter = 0
+        currentNode = self.head
+
+        while counter != index:
+            currentNode = currentNode.next
+            counter+=1
+
+        return currentNode
+
+    def printlist(self):
+        currentNode = self.head
+        arr = []
+        while currentNode:
+            arr.append(currentNode.value)
+            currentNode = currentNode.next  # Move to the next node
+        print(arr)
+
+    
 
 
 linked_list = LinkedList()
