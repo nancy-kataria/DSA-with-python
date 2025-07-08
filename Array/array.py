@@ -54,3 +54,23 @@ def popElement(nums):
     # O(n) space complexity
     index = binarySearch(nums)
     arr.pop(index)
+    
+def reverseArray():
+    # O(n) time complexity
+    # O(n) space complexity - extra array space used
+    # for reverse iteration, use -1 as the 3rd parameter
+    # -1 is used as last index so that 0 is included
+    # for index in range(len(arr)-1, -1, -1):
+    #     arr2.append(arr[index])
+    # return arr2
+
+    # Swapping elements
+    # O(n/2) = O(n) time complexity
+    # O(1) space complexity
+    arrayLength = len(arr)
+    for index in range(0, arrayLength//2):
+        temp = arr[index]
+        arr[index] = arr[arrayLength-1]
+        arr[arrayLength-1] = temp
+
+    return arr
