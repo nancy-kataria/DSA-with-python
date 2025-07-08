@@ -74,3 +74,14 @@ def reverseArray():
         arr[arrayLength-1] = temp
 
     return arr
+
+def rightRotation(nums,k):
+    n = len(nums)
+    if n <= 1:
+        return nums
+
+    # ex: 3%2 = 1 -> only one rotation
+    if k > n:
+        k = k % n
+
+    return nums[n - k:] + nums[:n - k]
