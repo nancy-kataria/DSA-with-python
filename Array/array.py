@@ -85,3 +85,27 @@ def rightRotation(nums,k):
         k = k % n
 
     return nums[n - k:] + nums[:n - k]
+
+def inPlaceRotation(nums, k):
+    n = len(nums)
+    if n <= 1:
+        return nums
+
+    # ex: 3%2 = 1 -> only one rotation
+    if k > n:
+        k = k % n
+
+    def reverse(start,end):
+        while start<end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start+=1
+            end-=1
+
+    # reverse the whole array
+    reverse(0, n-1)
+    # reverse the first k-1 elements
+    reverse(0,k-1)
+    # reverse the rest
+    reverse(k, n-1)
+
+    return nums
