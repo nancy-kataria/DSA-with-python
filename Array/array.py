@@ -119,3 +119,21 @@ def moveZeroesToEnd(nums):
             i+=1
 
     return nums
+
+arrayInsertion(4)
+arrayInsertion(5)
+arrayInsertion(7)
+arrayInsertion(56)
+# print(elementAtIndex(1))
+insertAtPosition(6,2)
+print(binarySearch(5))
+# removing the element from the end is an O(1) operation
+# Accessing the last element can be done in constant time.
+# There are no elements following so nothing needs to be shifted.
+arr.pop()
+popElement(5)
+arrayInsertion("ver")
+print(arr)
+print(reverseArray())
+print(rightRotation([1], 3))
+print(moveZeroesToEnd([0,1,0,3,12]))
