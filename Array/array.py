@@ -28,3 +28,29 @@ def insertAtPosition(num, index):
     # Since elements are shifted after insertion
     # O(n) time complexity
     arr.insert(index, num)
+    
+def binarySearch(num):
+    # binary search works on a sorted array
+    # O(log n) time complexity
+    # O(1) space complexity
+    lowestIndex = 0
+    highestIndex = len(arr)-1
+
+    while lowestIndex<=highestIndex:
+        mid = (lowestIndex+highestIndex) // 2
+
+        if arr[mid] == num:
+            return mid
+        elif num > arr[mid]:
+            lowestIndex = mid+1
+        else:
+            highestIndex = mid-1
+
+    return "Not Found"
+    
+def popElement(nums):
+    # Elements have to be shifted when one element is removed from its position
+    # O(n) time complexity
+    # O(n) space complexity
+    index = binarySearch(nums)
+    arr.pop(index)
